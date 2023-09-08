@@ -1,0 +1,115 @@
+Assignment answers for the Spoken Tutorial Course - Linux 
+
+Title : Basic Commands
+
+1. How will you find out in which directory does  the file corresponding to the man command resides?
+   Command : whereis man
+
+2. How will you find out what is the use of the ps command
+    Command : man ps
+
+
+Title : General Purpose Utilities in Linux
+
+1. Display the calender for the month of March 2012
+   Command : cal 3 2012
+
+2. A) List all the files and directories of the directory /usr/lib on the terminal
+   Command : ls usr/lib/
+
+   B) Now put the same information in a file named results. 
+   Command : ls usr/lib/ >> results.txt
+
+   C) Display the contents of the file results now.
+   Command : cat results.txt
+
+
+Title : File Systems
+
+1. Make a directory structure like this in your home directory
+   Command : 
+              mkdir demodir
+              cd demodir
+              mkdir inside_demo
+              mkdir also_inside_demo
+              cd also_inside_demo 
+              mkdir abc
+              mkdir abc_123
+        
+2. Remove the also_inside_demo directory
+   Command : rmdir also_inside_demo
+
+    
+Title : File Attributes
+
+1. A) Create a file abc.txt.
+      Command : vi abc.txt
+   B) Change the ownership of this file to some other user on your machine,
+      and also change the group to family.
+      Command :
+            sudo useradd demo
+            sudo groupadd family
+            sudo chown demo abc.txt
+            sudo chown :family abc.txt
+
+2. A) Create a file exercise.txt
+      Command : vi exercise.txt
+   B) Make it  executable
+      Command : sudo chmod +764 exercise.txt
+
+3. A) Create a file test.txt on your desktop  
+      Command : vi test.txt
+   B) Identify its inode number
+      Command : ls -li
+   C) Also create a softlink for test.txt in your home.
+      Command : ln -s /home/user/Desktop/test.txt /home
+    
+Title : Redirection of Pipes
+
+1. A) Create a file name error_log in your current directory
+      Command : vi error_log.txt
+   
+   B) How  can you redirect the error message to the file error_log when we apply the command "wc -l aa11" ?
+      Command :  wc -l aa11
+   C) How can you ensure that all the error log are appended to the error_log file?
+      Command : wc -l aa11 >> error_log.txt
+
+2. A) Create  files named test1, test2, testa, testb
+      Command : touch test1 test2 testa testb
+   B) How can you count the number of  files starting with test and then having only one digit in their name using only a single line command ?
+      Command : ls | grep -E "test[0-9]" | wc -l
+
+Title : Linux process
+
+1. Spawn three shell processes one after another.how can you see the PID of the current shell ? How can you see the PID of the shell which is 
+   the grandparent of the current shell?
+   Command : 
+
+            /bin/bash -i
+            /bin/bash -i
+            /bin/bash -i
+            ps all
+2. How can you see all the processes (both system & user processes) in your computer?
+   The output can be quite large.  How can you view the output as multipage output ? 
+   How can you store the output in a file named process_info?
+   Command : 
+
+            ps -e >> process_info
+            more process_info
+
+Title : Environment Variable
+
+Environment Variable
+
+
+1. How can you know what is the secondary command prompt set your system ?
+   How can you change the secondary command prompt from the default to your username ?
+
+2. How can you ensure that the mv command (used for renaming a file) always asks for permission before overwriting an existing destination file ? 
+   [ Hint : use alias command ]
+
+
+1.  echo $PS2
+            export PS2="Thangavel"
+       
+        2)  alias mv="mv -i"
