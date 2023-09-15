@@ -1,0 +1,193 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+				Assignment answers for the Spoken Tutorial Course - Linux - Module : 2
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Title : Environment Variable
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. A) How can you know what is the secondary command prompt set your system ?
+      
+       Command : echo $PS2
+  
+   B) How can you change the secondary command prompt from the default to your username ?
+      
+       Command : export PS2="Thangavel"
+
+
+2. How can you ensure that the mv command (used for renaming a file) always asks for permission before overwriting
+    an existing destination file ? [ Hint : use alias command ]
+   
+    Command : alias mv="mv -i"
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Title : Basics Of System Administration in Linux
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Create a new user account and home directory called "Duck" 
+ 
+   Command : sudo adduser Duck
+
+2. Set the user account "Duck's" expirey date as 07 - 01 - 2015
+
+    Command : sudo usermod -e 2015-01-07 Duck
+
+3. Find the id of the user account "Duck"
+
+    Command : id Duck
+
+4. Type df and du commands and see the output on your terminal.
+
+   Output :
+	
+    du -          The du command is used to display disk usage for files and directories within a specified directory. 
+	      When the du command is passed without any arguments, it displays the disk usage of the 
+                   current directory and its subdirectories.
+
+    df - 	     The df command is used to display information about disk space usage on all mounted filesystems. 
+	      When the df command is passed without any arguments, it shows information about all mounted 
+                   filesystems on my system.
+
+5. Type this command on the terminal and see the output :
+   du -ch *.txt
+
+   Output :   Display the disk usage of all files with the ".txt" extension in the current directory and its subdirectories.
+
+6. Delete the user account "Duck" permanently along with its home folder.
+
+    Command : sudo userdel -r Duck
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Title : Simple Filters
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Head :
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+1A) Video Assignment : 
+
+      Command :	vi Numbers.txt
+            		head Numbers.txt
+
+1B) Try to get the first 10 lines from /etc/passwd
+
+     Command :     head  /etc/passwd
+
+1C) Try to get just the first 3 lines from /etc/passwd
+   
+      Command :   head  -n3  /etc/passwd
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Tail :
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+2A) Video Assignment : 
+
+     Command : 	tail Numbers.txt
+
+2B) Try to get the Last 10 lines from /etc/passwd
+
+      Command :     tail  /etc/passwd
+
+2C)  Try to get just the Last 3 lines from /etc/passwd
+
+      Command :     tail -n3 /etc/passwd
+
+2D) Try to follow the log file /var/log/auth.log
+
+      Command :     tail /var/log/auth.log
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Sort : 
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+3A)  Try to sort the file /etc/passwd in assending order.
+
+      Command :     sort  -n  /etc/passwd
+
+3B)  Try to sort the file /etc/passwd in decending order.
+     
+      Command :     sort  -rn  /etc/passwd
+
+3C)  Try to sort the file /etc/passwd in assending order based on the 3rd column
+
+       Command :     sort  /etc/passwd  -t ":" -k3
+
+3D)  Try to sort the file /etc/passwd in assending order based on the 3rd column and ask sort to look at the thrid column 
+       as a whole number
+
+       Command :     sort -t: -k3,3n /etc/passwd
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Cut :
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+4A) Video  Assignment
+
+      Command :     touch Marks.txt
+		cut Marks.txt -d " " -k2
+
+4B) Try to cut just the usernames from the file /etc/passwd
+
+      Command :     cut /etc/passwd -d " " -k2     ( ASSUMING  USER NAME  IS  IN  SECOND  COLUMN )
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Paste :
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+5A)  Create a file alphabets.txt and key in all the 26 alphabets each one in a new line.
+
+       Command :	touch alphabets.txt
+
+5B)  Create a file number.txt and key in 1 to 26 each one in a new line.
+
+       Command :     touch numbers.txt
+
+5C)  Try to paste those two files, to see which letter appears at what number.
+
+       Command :     paste  alphabets.txt  number.txt
+            
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Title : The Grep Command
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Explore some other commands like -E, + and ?
+
+   Command : 
+
+ 		grep  -E  'word_to_be_searched_in_the_file'  filename.txt
+ 		grep 'Hello+' Greetings.txt
+ 		grep 'Behaviou?r' Greetings.txt
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Title : More on Grep Command
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. List those entries that are 5 letters long and starts with Y
+
+   Command :  grep  '^Y....'  filename.txt
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Title : The Sed Command
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Try to print records from 6th to 12th line.
+
+    Command :  sed -n '6,12p' seddemo.txt
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Title : More on Sed Command
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Try to replace or substitute name Ankit with Ashish
+
+    Command :  sed 's/Ankit/Ashish/g' semdemo.txt
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
